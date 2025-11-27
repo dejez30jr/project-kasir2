@@ -1,0 +1,105 @@
+/* Modern compact theme: smaller, clean, and smooth animations */
+:root {
+  /* Elegant palette */
+  --brand-1: #2f2f2f; /* charcoal */
+  --brand-2: #494949; /* graphite */
+  --brand-3: #34d399; /* emerald-400 */
+  --brand-4: #059669; /* emerald-600 */
+  --accent-amber-1: #f59e0b;
+  --accent-amber-2: #f97316;
+  --surface: #ffffff;
+  --surface-2: #f3f4f6;
+  --text-1: #0f172a; /* slate-900 */
+  --text-2: #64748b; /* slate-500 */
+  --shadow-sm: 0 4px 15px rgba(0,0,0,.08);
+  --shadow-md: 0 8px 30px rgba(0,0,0,.12);
+  --radius: 14px;
+  --radius-lg: 20px;
+}
+
+/* Base typography and compact scale */
+html { font-size: 14px; }
+@media (max-width: 480px) { html { font-size: 15px; } }
+body.compact-theme {
+  color: var(--text-1);
+  line-height: 1.5;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+/* Page fade-in */
+body.compact-theme { opacity: 0; transition: opacity .35s ease; }
+body.compact-theme.is-ready { opacity: 1; }
+
+/* Navbar adjustments */
+.navbar.compact {
+  padding-top: .35rem; padding-bottom: .35rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,.12);
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-2)) !important;
+}
+.navbar.compact .nav-link { padding: .25rem .5rem; font-weight: 600; font-size: .9rem; }
+.navbar.compact .navbar-brand { font-size: 1.25rem; }
+
+/* Cards */
+.card.modern {
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  background: var(--surface);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card.modern:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,.16); }
+.card.modern .card-body { padding: 1rem 1rem; }
+.card.modern .card-title { font-size: 1rem; margin-bottom: .25rem; }
+.card.modern .card-subtitle { font-size: .85rem; color: var(--text-2); }
+
+/* Tables */
+.table.compact { font-size: .92rem; }
+.table.compact thead th { padding: .55rem .75rem; }
+.table.compact tbody td { padding: .5rem .75rem; vertical-align: middle; }
+.table.compact tbody tr { transition: background .15s ease, transform .15s ease; }
+.table.compact tbody tr:hover { background: #f8fafc; transform: translateY(-1px); }
+
+/* Forms */
+.form-control.compact, .form-select.compact {
+  border-radius: 10px;
+  padding: .5rem .75rem;
+  font-size: .92rem;
+}
+.input-group-text.compact { padding: .5rem .6rem; font-size: .9rem; }
+
+/* Buttons */
+/* Base overrides to make buttons compact globally */
+.btn { border-radius: 10px; font-weight: 600; letter-spacing: .15px; padding: .45rem .9rem; font-size: .9rem; }
+.btn-sm { padding: .35rem .6rem; font-size: .82rem; border-radius: 9px; }
+.btn { transition: transform .12s ease, box-shadow .18s ease, opacity .18s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-primary { background: linear-gradient(135deg, var(--brand-1), var(--brand-2)); box-shadow: 0 6px 18px rgba(0,0,0,.25); border: none; }
+.btn-success { background: linear-gradient(135deg, var(--brand-4), var(--brand-3)); box-shadow: 0 6px 18px rgba(56,239,125,.2); border: none; }
+.btn-warning { background: linear-gradient(135deg, var(--accent-amber-1), var(--accent-amber-2)); color: #fff; border: none; }
+
+/* Badges & alerts */
+.badge.modern { padding: .35rem .6rem; border-radius: 10px; font-weight: 700; }
+.alert.modern { border-radius: 12px; box-shadow: var(--shadow-sm); }
+
+/* Global compact form & table overrides */
+.form-control, .form-select { padding: .5rem .75rem; font-size: .92rem; border-radius: 10px; }
+.table { font-size: .92rem; }
+.table thead th { padding: .55rem .75rem; }
+.table tbody td { padding: .5rem .75rem; }
+.card .card-body { padding: 1rem; }
+
+/* Smooth reveal animations */
+.reveal { opacity: 0; transform: translateY(14px); }
+.reveal.in { opacity: 1; transform: translateY(0); transition: opacity .45s ease, transform .45s ease; }
+
+/* Hover lift utility */
+.hover-lift { transition: transform .18s ease, box-shadow .2s ease; }
+.hover-lift:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.14); }
+
+/* Motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
